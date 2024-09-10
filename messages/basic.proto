@@ -1,0 +1,36 @@
+syntax = "proto3";
+package basic;
+
+
+// [RINF:DART-SIGNAL-BINARY]
+// this data provides the start and end time of the data
+// and includes the csv binary data
+message CsvData {}
+
+// [RINF:DART-SIGNAL]
+message DateRequest {
+  Date date = 1;
+  DateType dateType = 2;
+}
+
+enum DateType{
+  Start = 0;
+  End = 1;
+}
+
+// [RINF:RUST-SIGNAL]
+message CalulateResponse {
+  Status status = 1;
+  string result = 2;
+}
+
+enum Status {
+  OK = 0;
+  ERROR = 1;
+}
+
+message Date{
+  int32 year = 1;
+  uint32 month = 2;
+  uint32 day = 3;
+}
